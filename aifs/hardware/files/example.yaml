@@ -1,0 +1,9 @@
+dataset: aifs-ea-an-oper-0001-mars-n320-1979-2023-1h-v1-with-ERA51.zarr
+graph: /scratch/anemoi/graphs/graph_anemoi_new_n320.pt
+truncation: null
+truncation_inv: null
+checkpoint:
+  every_n_epochs: anemoi-by_epoch-epoch_{epoch:03d}-step_{step:06d}
+  every_n_train_steps: anemoi-by_step-epoch_{epoch:03d}-step_{step:06d}
+  every_n_minutes: anemoi-by_time-epoch_{epoch:03d}-step_{step:06d}
+warm_start: null

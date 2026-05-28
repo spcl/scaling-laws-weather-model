@@ -1,0 +1,16 @@
+era5:
+    class: WeatherBench2Raw
+    surf_vars: [2t, 10u, 10v, msl]
+    atmos_vars: [z, u, v, t, q]
+    static_vars: [lsm, z, slt]
+    path_slt: 
+    batch_size: 1
+    conf:
+        path: 'ERA5/weatherbench2_original'
+        str_task: 6h-forecast
+        atmos_levels: [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
+        #atmos_levels: [50, 100]
+        is_global_observation: true
+        resolution: [721, 1440]
+        grid_resolution: 0.25
+

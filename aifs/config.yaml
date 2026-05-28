@@ -1,0 +1,21 @@
+defaults:
+- data: aifs-single-mse
+- dataloader: native_grid
+- diagnostics: evaluation
+- hardware: slurm
+- graph: encoder_decoder_only
+- model: transformer
+- training: default
+- _self_
+
+
+# set to true to switch on config validation
+config_validation: True
+
+training:
+  # max_epochs: 67
+  max_steps: 260000
+  lr:
+    rate: 3.125e-5 # tests
+    iterations: 260000
+    min: 3e-7 #Not scaled by #GPU

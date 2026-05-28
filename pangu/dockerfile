@@ -1,0 +1,26 @@
+FROM nvcr.io/nvidia/modulus/modulus:24.07
+RUN apt update && \
+    DEBIAN_FRONTEND=noninteractive\
+        apt install -y python3 python3-pip git \
+                       libexpat1 libglib2.0-0 && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/* 
+
+RUN pip3 install --no-cache-dir --upgrade pip
+RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# numpy
+# onnx==1.12.0
+# onnxruntime-gpu==1.14.0
+RUN pip3 install onnxruntime
+RUN pip3 install --no-cache-dir \
+    numpy==1.24.3 \
+    onnxruntime-gpu \
+    onnx==1.14.0 \
+    wandb \
+    xarray \
+    matplotlib \ 
+    timm \
+    tensorboardX
+
+RUN python3 -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available())"
